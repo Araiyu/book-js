@@ -6,7 +6,7 @@
 <title>テンプレート</title>
 <link href="../../_common/images/favicon.ico" rel="shortcut icon">
 <link href="https://fonts.googleapis.com/css?family=M+PLUS+1p:400,500" rel="stylesheet">
-<link href="../../_common/css/style.css" rel="stylesheet">
+<link href ="panel.css" rel="stylesheet">8
 </head>
 <body>
 <header>
@@ -27,5 +27,23 @@
 <p>JavaScript Samples</p>
 </div><!-- /.container -->
 </footer>
+<div id="privacy-panel">
+    <p>当サイトではユーザーエクスペリエンス向上のためクッキーを使用しています。また、匿名でアクセス状況のデータを収集しています。詳しい情報は当サイトのプライバシーポリシーをご覧ください。</p>
+    <button id ="agreebtn">承諾する</button>
+</div>
+<script src ="../_common/scripts/js.bookie.js"></script>
+<script>
+    'use strict';
+
+    const agree = Cookies.get('cookie-agree');
+    if(agree === 'yes'){
+        console.log('クッキーを確認しました');
+    } else {
+        console.log('クッキーを確認できません');
+        document.getElementById('agreebtn').onclick =function(){
+            Cookies.set('cookie-agree', 'yes',{expires:7});
+        };
+    }
+</script>
 </body>
 </html>
